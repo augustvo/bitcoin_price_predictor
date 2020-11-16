@@ -1,0 +1,3 @@
+graft bitcoin_price_predictor
+global-exclude *.py[cod] __pycache__ *.so *.ipynb
+recursive-exclude  bitcoin_price_predictor/jupy *
