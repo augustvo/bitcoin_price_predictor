@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-# Copyright (C) 2018 Jean Bizot <jean@styckr.io>
 """ Main lib for bitcoin_price_predictor Project
 """
 
