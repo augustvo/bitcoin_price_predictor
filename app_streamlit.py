@@ -30,6 +30,16 @@ st.header("*Let's see what the model says...*")
 st.title('THE MODEL')
 'The model uses live data from Yahoo Finance from the following stocks'
 
+st.header('Please choose from the following stocks:')
+'Google (GOOG)'
+'S&P 500 (^GSPC)'
+'US Technology Index (DX-Y.NYB)'
+'NASDAQ (^IXIC)'
+'Bitcoin Futures (BTC=F)'
+'KOSPI Composite - Korean Stock Index (^KS11)'
+'Shanghai Composite – Chinese Stock Index (000001.SS)'
+
+
 def get_price(symbol):
     response = get('https://finance.yahoo.com/quote/{}/'.format(symbol))
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -38,7 +48,7 @@ def get_price(symbol):
 
 stocks = ['GOOG', '^GSPC', 'DX-Y.NYB', '^IXIC', 'BTC-USD', 'BTC=F', '^KS11','000001.SS']
 prices = pd.DataFrame(columns=['datetime', 'price'])
-selected_symbols = st.multiselect('', stocks, ['GOOG', '^GSPC', 'DX-Y.NYB', '^IXIC', 'BTC-USD', 'BTC=F', '^KS11','000001.SS'])
+selected_symbols = st.multiselect('', stocks)
 for _symbol in selected_symbols:
     prices.loc[_symbol] = {'datetime': pd.datetime.now(),
                            'price': get_price(_symbol)}
@@ -55,9 +65,9 @@ if pressed:
     loaded_model = models.load_model(path_to_model)
     today_test_data = scaled_df.iloc[-7:,:-1].values.reshape(1,7,36)
     if loaded_model.predict(today_test_data)[0,0] > 0.5:
-        st.text('TIME TO BUY')
+        st.header('TIME TO BUY')
     else:
-        st.text('TIME TO SELL')
+        st.header('TIME TO SELL')
 
 expander = st.beta_expander('Were you right to invest?')
 with expander:
@@ -66,7 +76,7 @@ with expander:
     else:
         st.header('Your gut was wrong!')
 
-data = pd.DataFrame({'model':[65, 67, 54, 70, 66, 69, 57, 60, 65, 67],'coin toss':[50, 50, 50, 50, 50, 50, 50, 50, 50, 50], 'Warren Buffet':[100, 100, 100, 100, 100, 100, 100, 100, 100, 100]})
+#data = pd.DataFrame({'model':[65, 67, 54, 70, 66, 69, 57, 60, 65, 67],'coin toss':[50, 50, 50, 50, 50, 50, 50, 50, 50, 50], 'Warren Buffet':[100, 100, 100, 100, 100, 100, 100, 100, 100, 100]})
 
 "*Lets see what the coin says?*"
 
@@ -80,9 +90,9 @@ if pressed:
 
 expander2 = st.beta_expander("Comparison of a coin toss vs our model")
 expander2.write('We backtested our model vs a coin flip 100 times...')
-with expander2:
+#with expander2:
 
-    st.line_chart(data)
+    #st.line_chart(data)
 
 
 
