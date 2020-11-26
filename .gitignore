@@ -9,3 +9,6 @@ dist/
 groupama/data/base_pno.*
 .DS_Store
 .idea/
+#/bitcoin_price_predictor/data/news_data/tweets.csv
+*.csv
+*.joblib
