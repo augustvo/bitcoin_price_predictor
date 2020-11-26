@@ -5,7 +5,7 @@
 
 """DATA DOWLOAD PARAMETERS"""
 
-START_DATE = 2019,11,1 # Define the initial date for the time line #
+START_DATE = [2019,11,1] # Define the initial date for the time line #
 
 INTERVAL = '1d' # Define the interval for the time line #
 

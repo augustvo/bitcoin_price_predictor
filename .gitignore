@@ -11,3 +11,4 @@ groupama/data/base_pno.*
 .idea/
 #/bitcoin_price_predictor/data/news_data/tweets.csv
 *.csv
+*.joblib
