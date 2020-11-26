@@ -204,7 +204,7 @@ def model_fitting(model, X_train, y_train):
   accuracy=0
   counter = 1
 
-  while accuracy < 0.65:
+  while accuracy < 0.58:
 
       history = model.fit(X_train,y_train,
                 batch_size=16,
@@ -218,7 +218,7 @@ def model_fitting(model, X_train, y_train):
       print(counter)
       counter += 1
   else:
-    model.save('data/model')
+    model.save('data/model5')
     print(colored("model saved locally", "green"))
 
   return history

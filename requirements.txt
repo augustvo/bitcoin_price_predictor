@@ -3,10 +3,5 @@ setuptools>=26
 wheel>=0.29
 pandas
 numpy
-nltk.corpus
-textblob
-nltk.tokenize
-nltk.stem
-ast
-nltk.download('averaged_perceptron_tagger')
+tensorflow
 
